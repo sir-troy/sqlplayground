@@ -5,10 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SQL Playground</title>
 <meta name="description" content="SQL Playground — write and run SQL in your browser. SQLite, MySQL, PostgreSQL, SQL Server, Oracle, Hive and more, with sample data, import and export. Free, no sign-up.">
-<link rel="canonical" href="https://sqlplayground.useful-indeed.com/">
+<meta property="og:site_name" content="useful-indeed">
 <meta property="og:title" content="SQL Playground">
 <meta property="og:description" content="Write and run SQL in your browser, in 7 dialects, with sample data. Free, no sign-up.">
 <meta property="og:url" content="https://sqlplayground.useful-indeed.com/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://sqlplayground.useful-indeed.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9QZY61DZ0G"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9QZY61DZ0G');</script>
+<link rel="canonical" href="https://sqlplayground.useful-indeed.com/">
 <link rel="stylesheet" href="useful-indeed/footer.css">
 <script src="version-log.js"></script>
 <link rel="icon" type="image/svg+xml" href="logo.svg">
@@ -36,7 +44,7 @@
   --kw:#8e3fd1; --fn:#1f5fd6; --str:#2f8a2f; --num:#c2541c; --cm:#8a93a5; --id:#a1670b; --tbl:#0b7d9a; --op:#4a5568;
 }
 *{box-sizing:border-box}
-html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font:13px/1.45 var(--font);overflow:hidden}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font:13px/1.45 var(--font);overflow-x:hidden;overflow-y:auto}
 button,select,input{font:inherit;color:inherit}
 .app{display:grid;grid-template-rows:52px 1fr;height:100vh}
 /* header */
@@ -200,6 +208,21 @@ table.grid{border-collapse:separate;border-spacing:0;font:12.5px var(--mono);min
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4427223480429053"
      crossorigin="anonymous"></script>
+<style>
+.code textarea,.rbody,.spanel,.etabs{overscroll-behavior:contain}
+.guide{max-width:860px;margin:0 auto;padding:56px 24px 120px;font-size:15px;line-height:1.65;color:var(--text)}
+.guide h2{font-size:26px;line-height:1.25;margin:0 0 12px}
+.guide h3{font-size:18px;margin:34px 0 10px}
+.guide p,.guide li{color:var(--muted)}
+.guide b{color:var(--text);font-weight:600}
+.guide ol,.guide ul{padding-left:22px;margin:0}
+.guide li{margin:6px 0}
+.guide .kbds{list-style:none;padding:0}
+.guide .kbds .kbd{display:inline-block;min-width:150px;margin-right:12px;font:12px var(--mono);color:var(--text);background:var(--panel2);border:1px solid var(--border);border-radius:6px;padding:3px 8px}
+.guide details{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px;margin:8px 0}
+.guide summary{cursor:pointer;font-weight:600;color:var(--text)}
+.guide details p{margin:8px 0 0}
+</style>
 </head>
 <body>
 <div class="loading" id="loading"><div><div class="sp2"></div>Starting SQL engine…</div></div>
@@ -280,6 +303,41 @@ table.grid{border-collapse:separate;border-spacing:0;font:12.5px var(--mono);min
     </main>
   </div>
 </div>
+<section class="guide" id="guide" aria-labelledby="guideTitle">
+  <h2 id="guideTitle">Free online SQL editor</h2>
+  <p>SQL Playground lets you write and run SQL in your browser without installing a database. Pick a dialect, load a sample database or your own file, and see results in a table you can sort, filter and copy. Everything runs on your device, so your data never leaves it.</p>
+
+  <h3>How to run SQL online</h3>
+  <ol>
+    <li><b>Choose a dialect</b> from the menu at the top: SQLite, MySQL / MariaDB, PostgreSQL, SQL Server (T-SQL), Oracle, MaxCompute (ODPS) or Hive / Spark SQL.</li>
+    <li><b>Load data.</b> Open the <b>⋯</b> menu and pick a sample database, or import a CSV, TSV, JSON, SQL or SQLite file.</li>
+    <li><b>Write a query</b> in the editor, or start from the <b>Examples</b> tab. Autocomplete suggests tables and columns as you type.</li>
+    <li><b>Press Run</b> (Ctrl/⌘ + Enter). To run only one statement, place the cursor in it and press Shift + Ctrl/⌘ + Enter.</li>
+    <li><b>Use the results.</b> Filter rows, sort columns, then copy them as TSV for Google Sheets or Excel, or as CSV, Markdown, JSON or INSERT statements.</li>
+  </ol>
+
+  <h3>Sample databases to practise with</h3>
+  <ul>
+    <li><b>Support desk:</b> agents and tickets. Good for counting, grouping and date practice.</li>
+    <li><b>E-commerce:</b> customers, products, orders and order items. Good for joins and sales totals.</li>
+    <li><b>Company HR:</b> employees, departments and projects. Good for self-joins, ranking and window functions.</li>
+  </ul>
+
+  <h3>Keyboard shortcuts</h3>
+  <ul class="kbds">
+    <li><span class="kbd">Ctrl/⌘ + Enter</span> Run all, or the selected text</li>
+    <li><span class="kbd">Shift + Alt + F</span> Format SQL</li>
+    <li><span class="kbd">Ctrl/⌘ + /</span> Comment or uncomment a line</li>
+    <li><span class="kbd">Ctrl/⌘ + S</span> Save your workspace in this browser</li>
+  </ul>
+
+  <h3>Frequently asked questions</h3>
+  <details><summary>Do I need to install MySQL or PostgreSQL?</summary><p>No. The playground uses SQLite built into the page and translates the dialect you pick, so most everyday queries run as written.</p></details>
+  <details><summary>Why does a query work here but not on my real database?</summary><p>Some vendor-only features, such as stored procedures or special data types, can't be translated. Test those on the real server before you rely on them.</p></details>
+  <details><summary>Can I use my own spreadsheet?</summary><p>Yes. Save it as CSV and import it from the ⋯ menu. Each file becomes a table you can query right away.</p></details>
+  <details><summary>Is it good for SQL interviews and exams?</summary><p>Yes. The sample databases cover the usual topics: joins, GROUP BY, subqueries, CTEs and window functions.</p></details>
+  <details><summary>Does it work on a phone?</summary><p>Yes, but it's easier on a computer, where the editor and the results fit side by side.</p></details>
+</section>
 <div class="modal-bg" id="modalBg"><div class="modal" id="modal"></div></div>
 <div class="toast" id="toast"></div>
 <input type="file" id="fileIn" accept=".csv,.tsv,.txt,.json,.sql,.db,.sqlite,.sqlite3" hidden>
